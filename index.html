@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Klaviyo Prompt Library</title>
     
-    <!-- 1. ESTILOS: Tailwind CSS (Diseño) -->
+    <!-- 1. STYLES: Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- 2. FUENTES: Darker Grotesque -->
+    <!-- 2. FONTS: Darker Grotesque -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     
-    <!-- Configuración de Tailwind -->
+    <!-- Tailwind Config -->
     <script>
       tailwind.config = {
         theme: {
@@ -37,13 +37,12 @@
     </script>
     <style>
       body { background-color: #2b2a29; margin: 0; }
-      /* Animaciones */
+      /* Animations */
       @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
       .animate-in { animation: fadeIn 0.3s ease-out forwards; }
     </style>
 
-    <!-- 3. REACT Y BABEL (Motor de la App) -->
-    <!-- Import Map para usar nombres simples en los imports -->
+    <!-- 3. REACT AND BABEL -->
     <script type="importmap">
 {
   "imports": {
@@ -56,13 +55,12 @@
   }
 }
 </script>
-    <!-- Babel Standalone permite escribir JSX directamente en el navegador -->
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 <link rel="stylesheet" href="/index.css">
 </head>
 <body>
     <div id="root">
-        <!-- Pantalla de carga simple -->
+        <!-- Loading Screen -->
         <div style="height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; font-family: sans-serif;">
             <svg class="animate-spin h-10 w-10 text-white mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                 <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
@@ -72,96 +70,129 @@
         </div>
     </div>
 
-    <!-- 4. LÓGICA DE LA APLICACIÓN -->
+    <!-- 4. APP LOGIC -->
     <script type="text/babel" data-type="module">
         import React, { useState, useEffect, useMemo } from 'react';
         import { createRoot } from 'react-dom/client';
-        import { Sparkles, MessageSquare, Smartphone, GitBranch, Users, BarChart3, Search, Filter, X, Copy, Check, Terminal, BookOpen } from 'lucide-react';
+        // Imported new icons: Calendar, Lightbulb, Target
+        import { Sparkles, Calendar, Lightbulb, Target, BarChart3, Search, Filter, X, Copy, Check, Terminal, BookOpen } from 'lucide-react';
 
-        // --- CONSTANTES Y DATOS ---
+        // --- SITE TITLES (EDIT HERE) ---
         const APP_TITLE = "Klaviyo + GPT Prompt Hub";
-        const APP_SUBTITLE = "Librería oficial de prompts para Email Marketing & SMS.";
+        const APP_SUBTITLE = "The ultimate library of prompts designed to maximize your Klaviyo strategy using ChatGPT.";
         
+        // --- AVAILABLE CATEGORIES (UPDATED) ---
         const Category = {
-            EMAIL: 'Email Campaigns',
-            SMS: 'SMS Marketing',
-            FLOWS: 'Flows & Automation',
-            SEGMENTATION: 'Segmentation',
-            ANALYTICS: 'Reporting & Analytics'
+            REPORTS: 'Reports & Metrics',
+            CONTENT: 'Content & Calendars',
+            INSIGHTS: 'Insights & Analysis',
+            STRATEGY: 'Strategy & Planning'
         };
 
+        // =================================================================================
+        //  PROMPT ZONE - ADD NEW CARDS HERE
+        // =================================================================================
         const PROMPTS = [
+          // --- PROMPT 1 ---
           {
             id: '1',
-            title: 'Welcome Series Generator',
-            shortDescription: 'Create a strategic 3-part welcome series structure for subscribers.',
-            description: 'Detailed framework for a 3-email welcome flow including subject lines, preview text, key objectives, and suggested body copy strategies to engage new subscribers immediately.',
-            content: `Act as a Klaviyo Email Marketing Specialist. Create a strategic outline for a 3-email Welcome Series flow for a [Industry/Niche] brand.\n\nFor each email, provide:\n1. Subject Line (give 3 options with emojis)\n2. Preview Text\n3. Key Objective of the email\n4. Suggested Content/Body Copy summary\n5. Call to Action (CTA)\n\nThe tone should be welcoming, professional, and persuasive.`,
-            category: Category.FLOWS,
+            title: 'Q4 Holiday Campaign Architect',
+            shortDescription: 'Build a comprehensive strategy for Black Friday & Cyber Monday.',
+            description: 'This prompt helps you build a high-level roadmap for the busiest time of the year, including segmenting audiences by engagement and defining key send dates.',
+            content: `Act as a Senior Lifecycle Marketing Strategist. Create a comprehensive campaign roadmap for Black Friday / Cyber Monday (BFCM) for a [Industry/Niche] brand.\n\nKey deliverables:\n1. A 2-week sending schedule leading up to BFCM.\n2. Segmentation strategy: How to treat VIPs vs. Window Shoppers.\n3. Offer structure ideas (e.g., tiered discounts vs. bundles).\n4. Contingency plan: What to send if open rates dip below 15% on day 1.`,
+            category: Category.STRATEGY, 
           },
+          // --- PROMPT 2 ---
           {
             id: '2',
-            title: 'Abandoned Cart Recovery',
-            shortDescription: 'Recover lost sales without being pushy or annoying.',
-            description: 'High-converting copy designed to acknowledge the item, offer a slight incentive if needed, and drive checkout completion with urgency but empathy towards the customer.',
-            content: `Write a high-converting Abandoned Cart email for Klaviyo. The product left in the cart is [Product Name].\n\nConstraints:\n- Tone: Helpful and urgent, but not pushy.\n- Structure: Acknowledge the item, offer a slight incentive (optional), and use a clear button.\n- Include a dynamic placeholder for {{ event.Items }} as a reminder.`,
-            category: Category.EMAIL,
+            title: 'Monthly Content Calendar (30-Day)',
+            shortDescription: 'Generate a balanced mix of educational and sales emails.',
+            description: 'Instantly generate a 4-week content calendar that balances value-add educational content with hard-hitting sales emails to maintain domain reputation.',
+            content: `Create a 30-day Email & SMS Content Calendar for [Brand Name], focusing on [Topic/Product].\n\nRequirements:\n- Frequency: 3 Emails/week, 1 SMS/week.\n- Balance: 40% Educational/Value, 40% Sales/Product, 20% Social Proof.\n- Output format: Table with Week, Channel, Topic, and "Hook" (Subject Line concept).`,
+            category: Category.CONTENT,
           },
+          // --- PROMPT 3 ---
           {
             id: '3',
-            title: 'SMS Flash Sale Alert',
-            shortDescription: 'Punchy, under-160-char texts for 24h flash sales.',
-            description: 'Create 3 urgency-driven SMS variations under 160 characters, including link placeholders and required opt-out language, specifically designed for time-sensitive sales.',
-            content: `Write 3 variations of an SMS campaign for a 24-hour Flash Sale.\n\nRequirements:\n- Under 160 characters.\n- Include placeholder for link [Link].\n- Include opt-out language 'Text STOP to opt out'.\n- Create a sense of urgency using FOMO (Fear Of Missing Out).`,
-            category: Category.SMS,
+            title: 'Campaign Performance Audit',
+            shortDescription: 'Analyze CSV data to find outliers and trends.',
+            description: 'Paste your campaign data to get a deep-dive analysis on why certain emails performed better than others and get actionable testing recommendations.',
+            content: `Act as a Data Analyst. I will paste the performance metrics (Open Rate, Click Rate, Placed Order Rate, Revenue per Recipient) for my last 5 campaigns below.\n\nTask:\n1. Identify the top performer and the bottom performer.\n2. Hypothesize WHY the top performer won based on the metrics.\n3. Suggest 2 A/B tests for the next campaign to improve the Click-Through Rate.\n\n[PASTE METRICS HERE]`,
+            category: Category.REPORTS,
           },
+          // --- PROMPT 4 ---
           {
             id: '4',
-            title: 'VIP Segment Logic',
-            shortDescription: 'Logic to identify and reward your best customers.',
-            description: 'Define specific criteria for a VIP segment based on Lifetime Value (LTV), order count, and AOV to help you target and reward your most loyal spenders effectively.',
-            content: `I need to create a VIP Segment in Klaviyo. Suggest 3 different sets of criteria I could use to define a "VIP Customer" for a fashion e-commerce brand. Consider metrics like:\n- Lifetime Value (LTV)\n- Number of Orders\n- Average Order Value (AOV)\n- Recent activity`,
-            category: Category.SEGMENTATION,
+            title: 'Churn Risk Segment Logic',
+            shortDescription: 'Define complex logic to identify at-risk customers.',
+            description: 'Develop sophisticated segmentation definitions to catch customers before they leave, using frequency and recency data points available in Klaviyo.',
+            content: `I need to build a "High Risk of Churn" segment in Klaviyo. \n\nMy average customer purchases every 45 days. Suggest specific boolean logic definitions I should use to identify customers who:\n1. Were previously loyal (3+ orders).\n2. Have deviated from their purchasing cycle by 2x the average.\n3. Have not engaged with email in the last 30 days.\n\nFormat the output as Klaviyo segment conditions (e.g., "What someone has done...").`,
+            category: Category.INSIGHTS,
           },
+          // --- PROMPT 5 ---
           {
             id: '5',
-            title: 'Subject Line A/B Tester',
-            shortDescription: 'Generate 5 variants to test and boost open rates.',
-            description: 'Create 5 distinct subject line alternatives focusing on curiosity, urgency, and personalization to run effective A/B tests against your control and improve open rates.',
-            content: `I have an email about [Topic]. The current subject line is: "[Current Subject Line]".\n\nPlease generate 5 alternative subject lines to A/B test against this control. \nFocus on different psychological triggers:\n1. Curiosity\n2. Benefit-driven\n3. Urgency\n4. Personalization\n5. Short & Punchy`,
-            category: Category.EMAIL,
+            title: 'Win-Back Flow Copywriter',
+            shortDescription: 'Write a 3-email sequence to reactivate lapsed users.',
+            description: 'Create a persuasive, emotionally intelligent flow designed to win back customers who haven\'t purchased in 90 days, utilizing dynamic coupon codes.',
+            content: `Write copy for a 3-part "Win-Back" flow for customers who haven't purchased in 90 days.\n\nEmail 1: "We miss you" (Gentle check-in, no discount).\nEmail 2: "Did something go wrong?" (Ask for feedback, small incentive).\nEmail 3: "Final Offer" (Urgency, highest discount unique code).\n\nTone: Empathetic but clear. Include placeholder for dynamic coupon codes.`,
+            category: Category.CONTENT,
           },
+          // --- PROMPT 6 ---
           {
             id: '6',
-            title: 'Monthly Report Summary',
-            shortDescription: 'Summarize campaign metrics for stakeholders.',
-            description: 'Analyze open rates, click rates, and revenue per recipient to generate a professional performance summary and actionable strategy recommendations for the next month.',
-            content: `Act as a Data Analyst. I will provide you with the Open Rate, Click Rate, and Revenue per Recipient for my last 4 campaigns. \n\nPlease summarize the performance trends and provide 3 actionable recommendations for next month's strategy based on these metrics.`,
-            category: Category.ANALYTICS,
+            title: 'Cohort Retention Analysis',
+            shortDescription: 'Analyze customer lifetime value by acquisition month.',
+            description: 'Interpret LTV data to understand which months produce the most valuable customers and how to adjust ad spend accordingly.',
+            content: `I have a dataset showing Customer Lifetime Value (LTV) broken down by "Month of Acquisition" for the last 12 months. \n\nHelp me analyze this data to answer:\n1. Which acquisition month produced the highest LTV customers after 6 months?\n2. Are holiday shoppers (Nov/Dec) worth less or more than summer shoppers long-term?\n3. Based on this, where should I allocate my acquisition budget next year?\n\n[PASTE DATA HERE]`,
+            category: Category.INSIGHTS,
           },
-        ];
 
-        // --- COMPONENTES ---
+          // ================================================================
+          // TEMPLATE TO ADD NEW PROMPTS (COPY AND PASTE THIS BELOW)
+          // ================================================================
+          /*
+          {
+            id: '7',
+            title: 'PROMPT TITLE',
+            shortDescription: 'Short description for the card.',
+            description: 'Long description for the modal.',
+            content: `Write the exact prompt here.`,
+            // CHOOSE ONE CATEGORY:
+            // Category.REPORTS   (Reports & Metrics)
+            // Category.CONTENT   (Content & Calendars)
+            // Category.INSIGHTS  (Insights & Analysis)
+            // Category.STRATEGY  (Strategy & Planning)
+            category: Category.CONTENT, 
+          },
+          */
+          // PASTE NEW PROMPTS BELOW HERE (Don't forget the comma!)
+          
+        ];
+        // =================================================================================
+        //  END OF PROMPT ZONE
+        // =================================================================================
+
+
+        // --- COMPONENTS ---
 
         // 1. Prompt Card
         const PromptCard = ({ prompt, onClick }) => {
             const getIcon = (cat) => {
                 switch (cat) {
-                    case Category.EMAIL: return <MessageSquare className="w-5 h-5 text-blue-500" />;
-                    case Category.SMS: return <Smartphone className="w-5 h-5 text-purple-500" />;
-                    case Category.FLOWS: return <GitBranch className="w-5 h-5 text-green-500" />;
-                    case Category.SEGMENTATION: return <Users className="w-5 h-5 text-orange-500" />;
-                    case Category.ANALYTICS: return <BarChart3 className="w-5 h-5 text-red-500" />;
+                    case Category.REPORTS: return <BarChart3 className="w-5 h-5 text-rose-500" />;
+                    case Category.CONTENT: return <Calendar className="w-5 h-5 text-blue-500" />;
+                    case Category.INSIGHTS: return <Lightbulb className="w-5 h-5 text-amber-500" />;
+                    case Category.STRATEGY: return <Target className="w-5 h-5 text-emerald-500" />;
                     default: return <Sparkles className="w-5 h-5 text-gray-500" />;
                 }
             };
             const getCategoryColor = (cat) => {
                 switch (cat) {
-                    case Category.EMAIL: return 'bg-blue-50 text-blue-700 border-blue-100';
-                    case Category.SMS: return 'bg-purple-50 text-purple-700 border-purple-100';
-                    case Category.FLOWS: return 'bg-green-50 text-green-700 border-green-100';
-                    case Category.SEGMENTATION: return 'bg-orange-50 text-orange-700 border-orange-100';
-                    case Category.ANALYTICS: return 'bg-red-50 text-red-700 border-red-100';
+                    case Category.REPORTS: return 'bg-rose-50 text-rose-700 border-rose-100';
+                    case Category.CONTENT: return 'bg-blue-50 text-blue-700 border-blue-100';
+                    case Category.INSIGHTS: return 'bg-amber-50 text-amber-700 border-amber-100';
+                    case Category.STRATEGY: return 'bg-emerald-50 text-emerald-700 border-emerald-100';
                     default: return 'bg-gray-50 text-gray-700 border-gray-100';
                 }
             };
@@ -170,7 +201,7 @@
                 <div onClick={() => onClick(prompt)} className="group bg-white rounded-xl border-2 border-[#7756ff] p-6 cursor-pointer transition-all duration-300 hover:shadow-[0_8px_30px_rgb(175,170,249,0.4)] hover:-translate-y-1 flex flex-col h-full">
                     <div className="flex items-start justify-between mb-4">
                         <div className={`p-2 rounded-lg ${getCategoryColor(prompt.category).split(' ')[0]}`}>{getIcon(prompt.category)}</div>
-                        <span className={`text-sm font-bold px-3 py-1 rounded-full border ${getCategoryColor(prompt.category)}`}>{prompt.category}</span>
+                        <span className={`text-xs font-bold px-2.5 py-1 rounded-full border uppercase tracking-wide ${getCategoryColor(prompt.category)}`}>{prompt.category}</span>
                     </div>
                     <h3 className="text-2xl font-extrabold text-gray-900 mb-2 group-hover:text-brand-600 transition-colors leading-tight">{prompt.title}</h3>
                     <p className="text-gray-500 text-lg leading-snug line-clamp-3 mb-4 flex-grow">{prompt.shortDescription}</p>
