@@ -56,7 +56,6 @@
 }
 </script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-<link rel="stylesheet" href="/index.css">
 </head>
 <body>
     <div id="root">
@@ -78,8 +77,8 @@
         import { Sparkles, Calendar, Lightbulb, Target, BarChart3, Search, Filter, X, Copy, Check, Terminal, BookOpen } from 'lucide-react';
 
         // --- SITE TITLES (EDIT HERE) ---
-        const APP_TITLE = "Klaviyo + GPT Prompt Hub";
-        const APP_SUBTITLE = "The ultimate library of prompts designed to maximize your Klaviyo strategy using ChatGPT.";
+        const APP_TITLE = "Lifecycle Team Prompt Library";
+        const APP_SUBTITLE = "The ultimate guide to maximizing outputs when interacting with AI.";
         
         // --- AVAILABLE CATEGORIES (UPDATED) ---
         const Category = {
@@ -93,81 +92,397 @@
         //  PROMPT ZONE - ADD NEW CARDS HERE
         // =================================================================================
         const PROMPTS = [
-          // --- PROMPT 1 ---
+          // --- CONTENT & CALENDAR ---
           {
-            id: '1',
-            title: 'Q4 Holiday Campaign Architect',
-            shortDescription: 'Build a comprehensive strategy for Black Friday & Cyber Monday.',
-            description: 'This prompt helps you build a high-level roadmap for the busiest time of the year, including segmenting audiences by engagement and defining key send dates.',
-            content: `Act as a Senior Lifecycle Marketing Strategist. Create a comprehensive campaign roadmap for Black Friday / Cyber Monday (BFCM) for a [Industry/Niche] brand.\n\nKey deliverables:\n1. A 2-week sending schedule leading up to BFCM.\n2. Segmentation strategy: How to treat VIPs vs. Window Shoppers.\n3. Offer structure ideas (e.g., tiered discounts vs. bundles).\n4. Contingency plan: What to send if open rates dip below 15% on day 1.`,
-            category: Category.STRATEGY, 
-          },
-          // --- PROMPT 2 ---
-          {
-            id: '2',
-            title: 'Monthly Content Calendar (30-Day)',
-            shortDescription: 'Generate a balanced mix of educational and sales emails.',
-            description: 'Instantly generate a 4-week content calendar that balances value-add educational content with hard-hitting sales emails to maintain domain reputation.',
-            content: `Create a 30-day Email & SMS Content Calendar for [Brand Name], focusing on [Topic/Product].\n\nRequirements:\n- Frequency: 3 Emails/week, 1 SMS/week.\n- Balance: 40% Educational/Value, 40% Sales/Product, 20% Social Proof.\n- Output format: Table with Week, Channel, Topic, and "Hook" (Subject Line concept).`,
+            id: 'c1',
+            title: 'Seasonal Intelligence',
+            shortDescription: "Analyze top-performing campaigns from the same months last year to plan upcoming campaigns.",
+            description: "I'm planning campaigns for [TARGET MONTHS] and want this strategy grounded in real performance. Analyze top-performing campaigns from the same months last year, plus the most recent [TIMEFRAME, e.g. 60 days]. Evaluate content themes, creative angles, product focus, and segment targeting. Based on those patterns, propose [# OF CAMPAIGNS] campaign concepts designed to improve CTR, CVR, and AOV, with the rationale behind each.",
+            content: `I'm planning campaigns for [TARGET MONTHS] and want this strategy grounded in real performance. Analyze top-performing campaigns from the same months last year, plus the most recent [TIMEFRAME, e.g. 60 days]. Evaluate content themes, creative angles, product focus, and segment targeting. Based on those patterns, propose [# OF CAMPAIGNS] campaign concepts designed to improve CTR, CVR, and AOV, with the rationale behind each.`,
             category: Category.CONTENT,
           },
-          // --- PROMPT 3 ---
           {
-            id: '3',
-            title: 'Campaign Performance Audit',
-            shortDescription: 'Analyze CSV data to find outliers and trends.',
-            description: 'Paste your campaign data to get a deep-dive analysis on why certain emails performed better than others and get actionable testing recommendations.',
-            content: `Act as a Data Analyst. I will paste the performance metrics (Open Rate, Click Rate, Placed Order Rate, Revenue per Recipient) for my last 5 campaigns below.\n\nTask:\n1. Identify the top performer and the bottom performer.\n2. Hypothesize WHY the top performer won based on the metrics.\n3. Suggest 2 A/B tests for the next campaign to improve the Click-Through Rate.\n\n[PASTE METRICS HERE]`,
-            category: Category.REPORTS,
+            id: 'c2',
+            title: 'Performance-Informed Calendar',
+            shortDescription: "Build an intentional campaign calendar using insights from recent performance.",
+            description: "Build an intentional campaign calendar for [TARGET MONTH, YEAR] using insights from the last [TIMEFRAME, e.g. 90 days] of performance. Review engagement trends, revenue per recipient, promotional density, and segment rotation. Identify patterns in cadence and fatigue, then design [# OF CAMPAIGNS] email campaign concepts that are strategically spaced and balanced. For each, explain why it should exist this month and what KPI it targets.",
+            content: `Build an intentional campaign calendar for [TARGET MONTH, YEAR] using insights from the last [TIMEFRAME, e.g. 90 days] of performance. Review engagement trends, revenue per recipient, promotional density, and segment rotation. Identify patterns in cadence and fatigue, then design [# OF CAMPAIGNS] email campaign concepts that are strategically spaced and balanced. For each, explain why it should exist this month and what KPI it targets.`,
+            category: Category.CONTENT,
           },
-          // --- PROMPT 4 ---
           {
-            id: '4',
-            title: 'Churn Risk Segment Logic',
-            shortDescription: 'Define complex logic to identify at-risk customers.',
-            description: 'Develop sophisticated segmentation definitions to catch customers before they leave, using frequency and recency data points available in Klaviyo.',
-            content: `I need to build a "High Risk of Churn" segment in Klaviyo. \n\nMy average customer purchases every 45 days. Suggest specific boolean logic definitions I should use to identify customers who:\n1. Were previously loyal (3+ orders).\n2. Have deviated from their purchasing cycle by 2x the average.\n3. Have not engaged with email in the last 30 days.\n\nFormat the output as Klaviyo segment conditions (e.g., "What someone has done...").`,
+            id: 'c3',
+            title: 'Re-Engagement Campaign Builder',
+            shortDescription: "Design re-engagement campaigns based on interaction history of lapsed segments.",
+            description: "Review our lapsed and at-risk segments and analyze their last [TIMEFRAME, e.g. 6 months] of interaction history — last open, last click, last purchase, and average previous order value. Based on these signals, design [# OF CAMPAIGNS] re-engagement campaign concepts with tailored angles for different levels of disengagement. For each, specify the target window of inactivity, the recommended hook, and the expected reactivation lever.",
+            content: `Review our lapsed and at-risk segments and analyze their last [TIMEFRAME, e.g. 6 months] of interaction history — last open, last click, last purchase, and average previous order value. Based on these signals, design [# OF CAMPAIGNS] re-engagement campaign concepts with tailored angles for different levels of disengagement. For each, specify the target window of inactivity, the recommended hook, and the expected reactivation lever.`,
+            category: Category.CONTENT,
+          },
+          {
+            id: 'c4',
+            title: 'VIP & High-CLV Content Plan',
+            shortDescription: "Design campaigns exclusively for top customers to reinforce loyalty and increase AOV.",
+            description: "Analyze the behavior and preferences of our top [PERCENTAGE, e.g. 10%] customers by CLV over the last [TIMEFRAME, e.g. 6 months]. Identify what content themes, product categories, and offer types resonate most with this group. Design [# OF CAMPAIGNS] campaign concepts exclusively for this tier that reinforce loyalty, increase AOV, and feel differentiated from our general sends.",
+            content: `Analyze the behavior and preferences of our top [PERCENTAGE, e.g. 10%] customers by CLV over the last [TIMEFRAME, e.g. 6 months]. Identify what content themes, product categories, and offer types resonate most with this group. Design [# OF CAMPAIGNS] campaign concepts exclusively for this tier that reinforce loyalty, increase AOV, and feel differentiated from our general sends.`,
+            category: Category.CONTENT,
+          },
+          {
+            id: 'c5',
+            title: 'A/B Test Roadmap Generator',
+            shortDescription: "Identify high-impact areas for testing and propose specific A/B tests.",
+            description: "Review our campaign performance from the last [TIMEFRAME, e.g. 90 days] and identify the [# OF AREAS, e.g. 5] highest-impact areas where testing could improve results — such as subject lines, send times, offer framing, CTA placement, or content structure. For each, propose a specific A/B test with a clear hypothesis, recommended variants, target segment, and the KPI it should be measured against.",
+            content: `Review our campaign performance from the last [TIMEFRAME, e.g. 90 days] and identify the [# OF AREAS, e.g. 5] highest-impact areas where testing could improve results — such as subject lines, send times, offer framing, CTA placement, or content structure. For each, propose a specific A/B test with a clear hypothesis, recommended variants, target segment, and the KPI it should be measured against.`,
+            category: Category.CONTENT,
+          },
+          {
+            id: 'c6',
+            title: 'Flow Content Refresh Planner',
+            shortDescription: "Audit active flows and propose content refresh ideas for underperformers.",
+            description: "Audit the current performance of our active email flows — [FLOW NAMES, e.g. welcome series, abandoned cart, post-purchase, winback, browse abandonment]. For each flow, evaluate open rates, click rates, and revenue per recipient against our campaign benchmarks. Identify which flows are underperforming and propose specific content refresh ideas: new angles, updated copy direction, product spotlight changes, or structural adjustments to timing and number of emails.",
+            content: `Audit the current performance of our active email flows — [FLOW NAMES, e.g. welcome series, abandoned cart, post-purchase, winback, browse abandonment]. For each flow, evaluate open rates, click rates, and revenue per recipient against our campaign benchmarks. Identify which flows are underperforming and propose specific content refresh ideas: new angles, updated copy direction, product spotlight changes, or structural adjustments to timing and number of emails.`,
+            category: Category.CONTENT,
+          },
+          {
+            id: 'c7',
+            title: 'Holiday & Event Campaign Planner',
+            shortDescription: "Design a full event arc for holidays or events based on past performance.",
+            description: "I'm planning campaigns around [HOLIDAY/EVENT, e.g. Mother's Day, Black Friday, Back to School]. Analyze how we performed during this event last year and review what competitors in [INDUSTRY/NICHE] typically do during this period. Design [# OF CAMPAIGNS] campaign concepts for a full event arc — pre-event hype, main event, and post-event follow-up — with specific angles, timing, and segment recommendations for each.",
+            content: `I'm planning campaigns around [HOLIDAY/EVENT, e.g. Mother's Day, Black Friday, Back to School]. Analyze how we performed during this event last year and review what competitors in [INDUSTRY/NICHE] typically do during this period. Design [# OF CAMPAIGNS] campaign concepts for a full event arc — pre-event hype, main event, and post-event follow-up — with specific angles, timing, and segment recommendations for each.`,
+            category: Category.CONTENT,
+          },
+          {
+            id: 'c8',
+            title: 'Email Copy Intro',
+            shortDescription: "Write full email copy aligned with segment history and campaign goals.",
+            description: "I need to write [# OF EMAILS, e.g. 1–3] email(s) for [CAMPAIGN TYPE, e.g. product launch, promotional, educational, re-engagement]. The target segment is [SEGMENT, e.g. engaged buyers, VIPs, lapsed customers]. The goal of this send is to [OBJECTIVE, e.g. drive conversions on a specific product, increase AOV, reactivate dormant subscribers]. Review recent campaign performance to understand what content angles, tones, and structures have worked best with this audience. Then write the full email(s) including: subject line, preview text, headline, body copy, and CTA. Keep the tone [TONE, e.g. conversational, premium, urgent, playful] and aligned with how this segment has historically responded.",
+            content: `I need to write [# OF EMAILS, e.g. 1–3] email(s) for [CAMPAIGN TYPE, e.g. product launch, promotional, educational, re-engagement]. The target segment is [SEGMENT, e.g. engaged buyers, VIPs, lapsed customers]. The goal of this send is to [OBJECTIVE, e.g. drive conversions on a specific product, increase AOV, reactivate dormant subscribers]. Review recent campaign performance to understand what content angles, tones, and structures have worked best with this audience. Then write the full email(s) including: subject line, preview text, headline, body copy, and CTA. Keep the tone [TONE, e.g. conversational, premium, urgent, playful] and aligned with how this segment has historically responded.`,
+            category: Category.CONTENT,
+          },
+          {
+            id: 'c9',
+            title: 'Subject Line Generator',
+            shortDescription: "Generate subject line options optimized for open rates vs click intent.",
+            description: "Write [# OF OPTIONS, e.g. 10] subject line options for an email about [TOPIC/OFFER]. The target audience is [SEGMENT]. The tone should be [TONE, e.g. playful, urgent, curiosity-driven, premium]. Include preview text for each. Flag which ones lean toward open rate optimization and which lean toward click intent.",
+            content: `Write [# OF OPTIONS, e.g. 10] subject line options for an email about [TOPIC/OFFER]. The target audience is [SEGMENT]. The tone should be [TONE, e.g. playful, urgent, curiosity-driven, premium]. Include preview text for each. Flag which ones lean toward open rate optimization and which lean toward click intent.`,
+            category: Category.CONTENT,
+          },
+          {
+            id: 'c10',
+            title: 'CTA & Offer Framing Variants',
+            shortDescription: "Generate different ways to frame offers and CTAs for specific segments.",
+            description: "I'm promoting [OFFER/PRODUCT] in an upcoming email to [SEGMENT]. Give me [# OF VARIANTS, e.g. 5–8] different ways to frame the offer and CTA — from direct and urgency-driven to softer and value-led. For each, write the CTA button text and one supporting line of copy that would sit above it.",
+            content: `I'm promoting [OFFER/PRODUCT] in an upcoming email to [SEGMENT]. Give me [# OF VARIANTS, e.g. 5–8] different ways to frame the offer and CTA — from direct and urgency-driven to softer and value-led. For each, write the CTA button text and one supporting line of copy that would sit above it.`,
+            category: Category.CONTENT,
+          },
+          {
+            id: 'c11',
+            title: 'Email Brief Creator',
+            shortDescription: "Create a complete creative brief for designers or copywriters.",
+            description: "I need to create a creative brief for an upcoming email campaign about [TOPIC/OFFER] targeting [SEGMENT] on [SEND DATE]. Generate a complete brief that includes: campaign objective, key message, subject line direction, content structure, CTA, and any product or visual recommendations. Keep it concise enough to hand off to a designer or copywriter.",
+            content: `I need to create a creative brief for an upcoming email campaign about [TOPIC/OFFER] targeting [SEGMENT] on [SEND DATE]. Generate a complete brief that includes: campaign objective, key message, subject line direction, content structure, CTA, and any product or visual recommendations. Keep it concise enough to hand off to a designer or copywriter.`,
+            category: Category.CONTENT,
+          },
+          {
+            id: 'c12',
+            title: 'Quick Campaign Idea Brainstorm',
+            shortDescription: "Fast campaign concepts with subject lines and CTAs.",
+            description: "I need a fast campaign idea for [TARGET WEEK/DATE]. The audience is [SEGMENT] and we recently [CONTEXT, e.g. launched a new product, ran a big sale, haven't sent in a week]. Give me [# OF IDEAS, e.g. 3–5] quick campaign concepts with a one-sentence description, suggested subject line, and primary CTA for each.",
+            content: `I need a fast campaign idea for [TARGET WEEK/DATE]. The audience is [SEGMENT] and we recently [CONTEXT, e.g. launched a new product, ran a big sale, haven't sent in a week]. Give me [# OF IDEAS, e.g. 3–5] quick campaign concepts with a one-sentence description, suggested subject line, and primary CTA for each.`,
+            category: Category.CONTENT,
+          },
+
+          // --- INSIGHTS & ANALYSIS ---
+          {
+            id: 'i1',
+            title: 'Engagement Decline Investigation',
+            shortDescription: "Investigate structural declines in engagement metrics.",
+            description: "Review campaign performance trends over the last [TIMEFRAME, e.g. 120 days] and identify any structural declines in open rate, click-to-open rate, or revenue efficiency. Determine whether these shifts suggest audience fatigue, increased promotional density, or changes in segment behavior. Provide hypotheses grounded in performance signals and recommend strategic adjustments.",
+            content: `Review campaign performance trends over the last [TIMEFRAME, e.g. 120 days] and identify any structural declines in open rate, click-to-open rate, or revenue efficiency. Determine whether these shifts suggest audience fatigue, increased promotional density, or changes in segment behavior. Provide hypotheses grounded in performance signals and recommend strategic adjustments.`,
             category: Category.INSIGHTS,
           },
-          // --- PROMPT 5 ---
           {
-            id: '5',
-            title: 'Win-Back Flow Copywriter',
-            shortDescription: 'Write a 3-email sequence to reactivate lapsed users.',
-            description: 'Create a persuasive, emotionally intelligent flow designed to win back customers who haven\'t purchased in 90 days, utilizing dynamic coupon codes.',
-            content: `Write copy for a 3-part "Win-Back" flow for customers who haven't purchased in 90 days.\n\nEmail 1: "We miss you" (Gentle check-in, no discount).\nEmail 2: "Did something go wrong?" (Ask for feedback, small incentive).\nEmail 3: "Final Offer" (Urgency, highest discount unique code).\n\nTone: Empathetic but clear. Include placeholder for dynamic coupon codes.`,
-            category: Category.CONTENT,
+            id: 'i2',
+            title: 'Conversion Gap Analysis',
+            shortDescription: "Identify campaigns with high interest but low conversion.",
+            description: "Identify campaigns from the last [TIMEFRAME, e.g. 90 days] with strong click-through rates but weak conversion or revenue per recipient. Analyze potential friction points: audience intent, product alignment, offer structure, or timing. Pinpoint where we're generating interest but failing to capture value, and recommend [# OF TESTS, e.g. 3–5] optimization tests to close that gap.",
+            content: `Identify campaigns from the last [TIMEFRAME, e.g. 90 days] with strong click-through rates but weak conversion or revenue per recipient. Analyze potential friction points: audience intent, product alignment, offer structure, or timing. Pinpoint where we're generating interest but failing to capture value, and recommend [# OF TESTS, e.g. 3–5] optimization tests to close that gap.`,
+            category: Category.INSIGHTS,
           },
-          // --- PROMPT 6 ---
           {
-            id: '6',
-            title: 'Cohort Retention Analysis',
-            shortDescription: 'Analyze customer lifetime value by acquisition month.',
-            description: 'Interpret LTV data to understand which months produce the most valuable customers and how to adjust ad spend accordingly.',
-            content: `I have a dataset showing Customer Lifetime Value (LTV) broken down by "Month of Acquisition" for the last 12 months. \n\nHelp me analyze this data to answer:\n1. Which acquisition month produced the highest LTV customers after 6 months?\n2. Are holiday shoppers (Nov/Dec) worth less or more than summer shoppers long-term?\n3. Based on this, where should I allocate my acquisition budget next year?\n\n[PASTE DATA HERE]`,
+            id: 'i3',
+            title: 'Content Theme Evolution',
+            shortDescription: "Analyze performance by content theme over time.",
+            description: "Analyze campaign performance over the last [TIMEFRAME, e.g. 6 months] grouped by content theme: promotional, educational, product launch, brand storytelling, and any others identified. Identify which themes consistently drive higher engagement, stronger conversion, and better revenue efficiency. Show whether each theme is gaining or losing effectiveness over time and recommend the ideal content mix for [TARGET MONTH or QUARTER].",
+            content: `Analyze campaign performance over the last [TIMEFRAME, e.g. 6 months] grouped by content theme: promotional, educational, product launch, brand storytelling, and any others identified. Identify which themes consistently drive higher engagement, stronger conversion, and better revenue efficiency. Show whether each theme is gaining or losing effectiveness over time and recommend the ideal content mix for [TARGET MONTH or QUARTER].`,
+            category: Category.INSIGHTS,
+          },
+          {
+            id: 'i4',
+            title: 'Campaign Type Benchmark',
+            shortDescription: "Compare performance across different campaign types.",
+            description: "Group all email campaigns from the last [TIMEFRAME, e.g. 90 days] by type: promotional, educational, product launch, brand storytelling. Compare average open rate, click-to-open rate, and revenue per recipient across types. Identify which campaign structures are most efficient and which consistently underperform, so we can refine our content mix.",
+            content: `Group all email campaigns from the last [TIMEFRAME, e.g. 90 days] by type: promotional, educational, product launch, brand storytelling. Compare average open rate, click-to-open rate, and revenue per recipient across types. Identify which campaign structures are most efficient and which consistently underperform, so we can refine our content mix.`,
+            category: Category.INSIGHTS,
+          },
+          {
+            id: 'i5',
+            title: 'Product Opportunity Planning',
+            shortDescription: "Analyze product behavior to identify opportunities.",
+            description: "Analyze the last [TIMEFRAME, e.g. 90 days] of campaign data with a focus on product behavior: top-clicked products, top-purchased items, and high AOV drivers. Identify gaps where engagement is strong but conversion is weak. Propose [# OF CAMPAIGNS] campaign ideas that strategically spotlight specific products or bundles, explaining the revenue hypothesis behind each.",
+            content: `Analyze the last [TIMEFRAME, e.g. 90 days] of campaign data with a focus on product behavior: top-clicked products, top-purchased items, and high AOV drivers. Identify gaps where engagement is strong but conversion is weak. Propose [# OF CAMPAIGNS] campaign ideas that strategically spotlight specific products or bundles, explaining the revenue hypothesis behind each.`,
+            category: Category.INSIGHTS,
+          },
+          {
+            id: 'i6',
+            title: 'Unsubscribe & Churn Pattern Analysis',
+            shortDescription: "Analyze factors driving unsubscribes and churn.",
+            description: "Analyze unsubscribe and list churn data from the last [TIMEFRAME, e.g. 90 days]. Identify which campaigns, content themes, segments, send frequencies, and offer types correlate with the highest unsubscribe rates. Determine whether churn is concentrated in specific audience tiers or spread evenly. Provide actionable hypotheses on what's driving opt-outs and recommend [# OF ADJUSTMENTS, e.g. 3–5] changes to reduce churn without sacrificing revenue.",
+            content: `Analyze unsubscribe and list churn data from the last [TIMEFRAME, e.g. 90 days]. Identify which campaigns, content themes, segments, send frequencies, and offer types correlate with the highest unsubscribe rates. Determine whether churn is concentrated in specific audience tiers or spread evenly. Provide actionable hypotheses on what's driving opt-outs and recommend [# OF ADJUSTMENTS, e.g. 3–5] changes to reduce churn without sacrificing revenue.`,
+            category: Category.INSIGHTS,
+          },
+          {
+            id: 'i7',
+            title: 'Flows vs. Campaigns Efficiency Comparison',
+            shortDescription: "Compare efficiency of flows vs manual campaigns.",
+            description: "Compare the performance efficiency of our automated flows against our manual campaigns over the last [TIMEFRAME, e.g. 90 days]. Evaluate revenue per recipient, conversion rate, and engagement metrics side by side. Identify whether we're over-relying on one channel at the expense of the other, and highlight specific areas where shifting effort or budget between flows and campaigns could improve overall email program performance.",
+            content: `Compare the performance efficiency of our automated flows against our manual campaigns over the last [TIMEFRAME, e.g. 90 days]. Evaluate revenue per recipient, conversion rate, and engagement metrics side by side. Identify whether we're over-relying on one channel at the expense of the other, and highlight specific areas where shifting effort or budget between flows and campaigns could improve overall email program performance.`,
+            category: Category.INSIGHTS,
+          },
+          {
+            id: 'i8',
+            title: 'Cohort Behavior Analysis',
+            shortDescription: "Track engagement and purchasing behavior of specific cohorts.",
+            description: "Segment customers acquired in [COHORT PERIOD, e.g. Q4 2025] and track their email engagement and purchasing behavior over the following [TIMEFRAME, e.g. 90 days]. Compare this cohort's open rate, click rate, conversion rate, repeat purchase rate, and AOV against [COMPARISON COHORT, e.g. Q3 2025 customers]. Identify whether acquisition quality is improving or declining and what that implies for retention strategy.",
+            content: `Segment customers acquired in [COHORT PERIOD, e.g. Q4 2025] and track their email engagement and purchasing behavior over the following [TIMEFRAME, e.g. 90 days]. Compare this cohort's open rate, click rate, conversion rate, repeat purchase rate, and AOV against [COMPARISON COHORT, e.g. Q3 2025 customers]. Identify whether acquisition quality is improving or declining and what that implies for retention strategy.`,
+            category: Category.INSIGHTS,
+          },
+          {
+            id: 'i9',
+            title: 'Why Did This Campaign Work?',
+            shortDescription: "Analyze why a specific campaign outperformed averages.",
+            description: "Campaign [CAMPAIGN NAME] outperformed our averages. Give me a quick breakdown of why — was it the segment, the timing, the subject line, the offer, or the content angle? Compare it against the [# OF CAMPAIGNS, e.g. 5] most similar recent campaigns and tell me what this one did differently.",
+            content: `Campaign [CAMPAIGN NAME] outperformed our averages. Give me a quick breakdown of why — was it the segment, the timing, the subject line, the offer, or the content angle? Compare it against the [# OF CAMPAIGNS, e.g. 5] most similar recent campaigns and tell me what this one did differently.`,
+            category: Category.INSIGHTS,
+          },
+          {
+            id: 'i10',
+            title: 'Segment Quick Comparison',
+            shortDescription: "Compare performance of two segments side by side.",
+            description: "Compare the performance of [SEGMENT A] vs. [SEGMENT B] over the last [TIMEFRAME, e.g. 30 days]. Show open rate, click rate, conversion rate, and revenue per recipient side by side. Tell me which segment is more efficient right now and whether the gap is widening or closing.",
+            content: `Compare the performance of [SEGMENT A] vs. [SEGMENT B] over the last [TIMEFRAME, e.g. 30 days]. Show open rate, click rate, conversion rate, and revenue per recipient side by side. Tell me which segment is more efficient right now and whether the gap is widening or closing.`,
+            category: Category.INSIGHTS,
+          },
+          {
+            id: 'i11',
+            title: 'Top Products This Month',
+            shortDescription: "Identify top products by email-attributed revenue.",
+            description: "Identify the top [# OF PRODUCTS, e.g. 10] products by email-attributed revenue in the last [TIMEFRAME, e.g. 30 days]. For each, show total revenue, number of purchases, and which campaigns or flows drove the most sales. Flag any products trending up that we haven't featured in a dedicated campaign yet.",
+            content: `Identify the top [# OF PRODUCTS, e.g. 10] products by email-attributed revenue in the last [TIMEFRAME, e.g. 30 days]. For each, show total revenue, number of purchases, and which campaigns or flows drove the most sales. Flag any products trending up that we haven't featured in a dedicated campaign yet.`,
+            category: Category.INSIGHTS,
+          },
+          {
+            id: 'i12',
+            title: 'Before vs. After Comparison',
+            shortDescription: "Compare metrics before and after a specific change.",
+            description: "We made a change to [CHANGE, e.g. send frequency, a specific flow, segment targeting, offer strategy] around [DATE]. Compare key performance metrics from the [TIMEFRAME, e.g. 30 days] before vs. after that change. Tell me if there's a meaningful difference and whether it's likely caused by the change or just normal variance.",
+            content: `We made a change to [CHANGE, e.g. send frequency, a specific flow, segment targeting, offer strategy] around [DATE]. Compare key performance metrics from the [TIMEFRAME, e.g. 30 days] before vs. after that change. Tell me if there's a meaningful difference and whether it's likely caused by the change or just normal variance.`,
             category: Category.INSIGHTS,
           },
 
-          // ================================================================
-          // TEMPLATE TO ADD NEW PROMPTS (COPY AND PASTE THIS BELOW)
-          // ================================================================
-          /*
+          // --- REPORTS & METRICS ---
           {
-            id: '7',
-            title: 'PROMPT TITLE',
-            shortDescription: 'Short description for the card.',
-            description: 'Long description for the modal.',
-            content: `Write the exact prompt here.`,
-            // CHOOSE ONE CATEGORY:
-            // Category.REPORTS   (Reports & Metrics)
-            // Category.CONTENT   (Content & Calendars)
-            // Category.INSIGHTS  (Insights & Analysis)
-            // Category.STRATEGY  (Strategy & Planning)
-            category: Category.CONTENT, 
+            id: 'r1',
+            title: 'Underperformance Diagnosis',
+            shortDescription: "Diagnose why a campaign underperformed against averages.",
+            description: "Analyze campaign [CAMPAIGN NAME] against our [TIMEFRAME, e.g. 90-day] performance averages. Evaluate open rate, click rate, revenue per recipient, segment composition, timing, and content theme. Identify the most likely drivers behind the performance gap and determine whether it was a structural issue, a segment mismatch, or a one-off anomaly.",
+            content: `Analyze campaign [CAMPAIGN NAME] against our [TIMEFRAME, e.g. 90-day] performance averages. Evaluate open rate, click rate, revenue per recipient, segment composition, timing, and content theme. Identify the most likely drivers behind the performance gap and determine whether it was a structural issue, a segment mismatch, or a one-off anomaly.`,
+            category: Category.REPORTS,
           },
-          */
-          // PASTE NEW PROMPTS BELOW HERE (Don't forget the comma!)
-          
+          {
+            id: 'r2',
+            title: 'Quarter-over-Quarter Trend Analysis',
+            shortDescription: "Compare performance between current and previous quarters.",
+            description: "Compare email campaign performance from [CURRENT QUARTER] to [PREVIOUS QUARTER], focusing on open rate trends, click-to-open rate, revenue per recipient, and send cadence. Identify meaningful directional shifts — not small fluctuations — and explain the strategic implications for how we should plan next quarter.",
+            content: `Compare email campaign performance from [CURRENT QUARTER] to [PREVIOUS QUARTER], focusing on open rate trends, click-to-open rate, revenue per recipient, and send cadence. Identify meaningful directional shifts — not small fluctuations — and explain the strategic implications for how we should plan next quarter.`,
+            category: Category.REPORTS,
+          },
+          {
+            id: 'r3',
+            title: 'Engagement Momentum Scan',
+            shortDescription: "Evaluate whether engagement metrics are trending up or down.",
+            description: "Review campaign performance over the last [TIMEFRAME, e.g. 120 days] and evaluate whether engagement metrics are trending upward, stabilizing, or declining. Focus on open rate consistency, click behavior, and revenue efficiency across segments. Classify overall momentum as Strong, Stable, or At Risk — and explain what these signals suggest about our current lifecycle health.",
+            content: `Review campaign performance over the last [TIMEFRAME, e.g. 120 days] and evaluate whether engagement metrics are trending upward, stabilizing, or declining. Focus on open rate consistency, click behavior, and revenue efficiency across segments. Classify overall momentum as Strong, Stable, or At Risk — and explain what these signals suggest about our current lifecycle health.`,
+            category: Category.REPORTS,
+          },
+          {
+            id: 'r4',
+            title: 'Seasonality & Behavior Signals',
+            shortDescription: "Evaluate campaign performance by send day and time.",
+            description: "Evaluate campaign performance by send day and time over the last [TIMEFRAME, e.g. 90 days]. Benchmark engagement and revenue efficiency across weekday and time slots. Identify consistent high-efficiency windows and underperforming patterns. Determine whether timing is materially influencing results or if differences are primarily driven by content and audience.",
+            content: `Evaluate campaign performance by send day and time over the last [TIMEFRAME, e.g. 90 days]. Benchmark engagement and revenue efficiency across weekday and time slots. Identify consistent high-efficiency windows and underperforming patterns. Determine whether timing is materially influencing results or if differences are primarily driven by content and audience.`,
+            category: Category.REPORTS,
+          },
+          {
+            id: 'r5',
+            title: 'Monthly Performance Summary',
+            shortDescription: "Generate a comprehensive performance summary for a specific month.",
+            description: "Generate a comprehensive performance summary for [MONTH, YEAR]. Include total sends, average open rate, click-to-open rate, revenue per recipient, total email-attributed revenue, and unsubscribe rate. Compare each metric against the previous month and the [TIMEFRAME, e.g. 90-day] rolling average. Highlight the top [# OF CAMPAIGNS, e.g. 3] and bottom [# OF CAMPAIGNS, e.g. 3] performing campaigns with a brief explanation of what drove their results.",
+            content: `Generate a comprehensive performance summary for [MONTH, YEAR]. Include total sends, average open rate, click-to-open rate, revenue per recipient, total email-attributed revenue, and unsubscribe rate. Compare each metric against the previous month and the [TIMEFRAME, e.g. 90-day] rolling average. Highlight the top [# OF CAMPAIGNS, e.g. 3] and bottom [# OF CAMPAIGNS, e.g. 3] performing campaigns with a brief explanation of what drove their results.`,
+            category: Category.REPORTS,
+          },
+          {
+            id: 'r6',
+            title: 'Flow Performance Report',
+            shortDescription: "Audit performance of all active email flows.",
+            description: "Audit the performance of all active email flows over the last [TIMEFRAME, e.g. 90 days]. For each flow, report on total recipients, open rate, click rate, conversion rate, and revenue per recipient. Compare current performance against the previous period and flag any flows showing meaningful decline. Rank flows by revenue efficiency and identify which ones need immediate attention.",
+            content: `Audit the performance of all active email flows over the last [TIMEFRAME, e.g. 90 days]. For each flow, report on total recipients, open rate, click rate, conversion rate, and revenue per recipient. Compare current performance against the previous period and flag any flows showing meaningful decline. Rank flows by revenue efficiency and identify which ones need immediate attention.`,
+            category: Category.REPORTS,
+          },
+          {
+            id: 'r7',
+            title: 'List Health & Growth Report',
+            shortDescription: "Analyze list growth, quality, and deliverability risk.",
+            description: "Analyze our email list over the last [TIMEFRAME, e.g. 90 days]. Report on total list size, growth rate, new subscriber sources, unsubscribe rate, spam complaint rate, and the percentage of engaged vs. unengaged profiles. Identify whether list quality is improving or deteriorating, and flag any segments where deliverability risk is increasing.",
+            content: `Analyze our email list over the last [TIMEFRAME, e.g. 90 days]. Report on total list size, growth rate, new subscriber sources, unsubscribe rate, spam complaint rate, and the percentage of engaged vs. unengaged profiles. Identify whether list quality is improving or deteriorating, and flag any segments where deliverability risk is increasing.`,
+            category: Category.REPORTS,
+          },
+          {
+            id: 'r8',
+            title: 'Revenue Attribution Breakdown',
+            shortDescription: "Break down revenue by campaigns vs flows.",
+            description: "Break down email-attributed revenue from the last [TIMEFRAME, e.g. 30 days] by source: campaigns vs. flows. Within each, identify the top [# OF ITEMS, e.g. 5] individual campaigns and top [# OF ITEMS, e.g. 5] flows by revenue contribution. Show what percentage of total email revenue each source represents and whether the balance between campaigns and flows has shifted compared to the previous period.",
+            content: `Break down email-attributed revenue from the last [TIMEFRAME, e.g. 30 days] by source: campaigns vs. flows. Within each, identify the top [# OF ITEMS, e.g. 5] individual campaigns and top [# OF ITEMS, e.g. 5] flows by revenue contribution. Show what percentage of total email revenue each source represents and whether the balance between campaigns and flows has shifted compared to the previous period.`,
+            category: Category.REPORTS,
+          },
+          {
+            id: 'r9',
+            title: 'Single Campaign Recap',
+            shortDescription: "Quick performance recap for a single campaign.",
+            description: "Pull the results for campaign [CAMPAIGN NAME] and give me a quick performance recap: open rate, click rate, CTOR, conversion rate, revenue, revenue per recipient, and unsubscribe rate. Compare each metric against our [TIMEFRAME, e.g. 30-day] average and tell me in one sentence whether this was above, at, or below expectations.",
+            content: `Pull the results for campaign [CAMPAIGN NAME] and give me a quick performance recap: open rate, click rate, CTOR, conversion rate, revenue, revenue per recipient, and unsubscribe rate. Compare each metric against our [TIMEFRAME, e.g. 30-day] average and tell me in one sentence whether this was above, at, or below expectations.`,
+            category: Category.REPORTS,
+          },
+          {
+            id: 'r10',
+            title: 'Weekly Send Summary',
+            shortDescription: "Summarize all campaigns sent in the last week.",
+            description: "Summarize all campaigns sent in the last [TIMEFRAME, e.g. 7 days]. For each, list: name, send date, segment, open rate, click rate, and revenue. Rank them by revenue per recipient and give me a one-line takeaway on the week overall.",
+            content: `Summarize all campaigns sent in the last [TIMEFRAME, e.g. 7 days]. For each, list: name, send date, segment, open rate, click rate, and revenue. Rank them by revenue per recipient and give me a one-line takeaway on the week overall.`,
+            category: Category.REPORTS,
+          },
+          {
+            id: 'r11',
+            title: 'Flow Quick Check',
+            shortDescription: "Quick performance check for a specific flow.",
+            description: "Pull current performance for [FLOW NAME, e.g. welcome series, abandoned cart, winback]. Show me open rate, click rate, conversion rate, and revenue per recipient for each step in the flow. Flag any step with a significant drop-off compared to the previous step.",
+            content: `Pull current performance for [FLOW NAME, e.g. welcome series, abandoned cart, winback]. Show me open rate, click rate, conversion rate, and revenue per recipient for each step in the flow. Flag any step with a significant drop-off compared to the previous step.`,
+            category: Category.REPORTS,
+          },
+          {
+            id: 'r12',
+            title: 'Deliverability Snapshot',
+            shortDescription: "Quick deliverability health check.",
+            description: "Give me a quick deliverability health check based on the last [TIMEFRAME, e.g. 30 days]. Report on average open rate trends, bounce rate, spam complaint rate, and unsubscribe rate. Flag anything that looks abnormal or trending in the wrong direction and tell me if immediate action is needed.",
+            content: `Give me a quick deliverability health check based on the last [TIMEFRAME, e.g. 30 days]. Report on average open rate trends, bounce rate, spam complaint rate, and unsubscribe rate. Flag anything that looks abnormal or trending in the wrong direction and tell me if immediate action is needed.`,
+            category: Category.REPORTS,
+          },
+
+          // --- STRATEGY & PLANNING ---
+          {
+            id: 's1',
+            title: 'Reverse Engineering Top Performers',
+            shortDescription: "Analyze top campaigns to extract repeatable success patterns.",
+            description: "Analyze our top [# OF CAMPAIGNS, e.g. 10] performing campaigns from the last [TIMEFRAME, e.g. 90 days] ranked by revenue per recipient. Break down what they have in common: segment targeting, content angle, offer structure, product focus, and timing. Extract the repeatable patterns behind their success into a framework we can intentionally replicate going forward.",
+            content: `Analyze our top [# OF CAMPAIGNS, e.g. 10] performing campaigns from the last [TIMEFRAME, e.g. 90 days] ranked by revenue per recipient. Break down what they have in common: segment targeting, content angle, offer structure, product focus, and timing. Extract the repeatable patterns behind their success into a framework we can intentionally replicate going forward.`,
+            category: Category.STRATEGY,
+          },
+          {
+            id: 's2',
+            title: 'Segment Tier Benchmark',
+            shortDescription: "Benchmark results by primary segment tier.",
+            description: "Benchmark campaign results from the last [TIMEFRAME, e.g. quarter] by primary segment tier: [SEGMENT TIERS, e.g. high CLV customers, recent purchasers, engaged non-buyers, lapsed users]. Compare engagement and revenue efficiency across groups. Identify which tiers generate the strongest return per send and where we may be over-investing with limited incremental impact.",
+            content: `Benchmark campaign results from the last [TIMEFRAME, e.g. quarter] by primary segment tier: [SEGMENT TIERS, e.g. high CLV customers, recent purchasers, engaged non-buyers, lapsed users]. Compare engagement and revenue efficiency across groups. Identify which tiers generate the strongest return per send and where we may be over-investing with limited incremental impact.`,
+            category: Category.STRATEGY,
+          },
+          {
+            id: 's3',
+            title: 'Offer Structure Benchmark',
+            shortDescription: "Benchmark campaigns by offer structure.",
+            description: "Benchmark the last [TIMEFRAME, e.g. 90 days] of campaigns by offer structure: [OFFER TYPES, e.g. percentage discounts, dollar discounts, bundles, non-discount value campaigns]. Compare impact on click rate, conversion rate, and average order value. Identify which offer mechanics drive profitable growth versus short-term engagement spikes.",
+            content: `Benchmark the last [TIMEFRAME, e.g. 90 days] of campaigns by offer structure: [OFFER TYPES, e.g. percentage discounts, dollar discounts, bundles, non-discount value campaigns]. Compare impact on click rate, conversion rate, and average order value. Identify which offer mechanics drive profitable growth versus short-term engagement spikes.`,
+            category: Category.STRATEGY,
+          },
+          {
+            id: 's4',
+            title: 'Seasonality & Behavior Signals',
+            shortDescription: "Identify recurring seasonal patterns in engagement and revenue.",
+            description: "Analyze [TIMEFRAME, e.g. 12 months] of campaign performance data to identify recurring seasonal patterns in engagement, conversion, and revenue per recipient. Look for performance spikes, dips, and behavioral cycles that repeat year over year. Recommend structural adjustments to cadence, messaging, or product focus for [UPCOMING MONTHS].",
+            content: `Analyze [TIMEFRAME, e.g. 12 months] of campaign performance data to identify recurring seasonal patterns in engagement, conversion, and revenue per recipient. Look for performance spikes, dips, and behavioral cycles that repeat year over year. Recommend structural adjustments to cadence, messaging, or product focus for [UPCOMING MONTHS].`,
+            category: Category.STRATEGY,
+          },
+          {
+            id: 's5',
+            title: 'Segment Rotation Strategy',
+            shortDescription: "Plan campaign ideas to rotate audiences and avoid fatigue.",
+            description: "Review the last [TIMEFRAME, e.g. quarter] of campaign performance and identify which segments are overused, under-leveraged, or driving the highest efficiency. Plan [# OF CAMPAIGNS] campaign ideas for [TARGET MONTH] that rotate audiences more strategically and avoid fatigue. Base recommendations on engagement and revenue trends, and explain the logic behind targeting each segment at this moment.",
+            content: `Review the last [TIMEFRAME, e.g. quarter] of campaign performance and identify which segments are overused, under-leveraged, or driving the highest efficiency. Plan [# OF CAMPAIGNS] campaign ideas for [TARGET MONTH] that rotate audiences more strategically and avoid fatigue. Base recommendations on engagement and revenue trends, and explain the logic behind targeting each segment at this moment.`,
+            category: Category.STRATEGY,
+          },
+          {
+            id: 's6',
+            title: 'Discount Dependency Assessment',
+            shortDescription: "Evaluate dependence on discounts for revenue.",
+            description: "Analyze the last [TIMEFRAME, e.g. 6 months] of campaign and flow performance to evaluate how dependent our email revenue is on discounts. Compare revenue, conversion rate, and AOV between discount-driven campaigns and non-discount campaigns. Identify whether we're training customers to wait for promotions and propose a [TIMEFRAME, e.g. 90-day] roadmap to gradually shift toward higher-margin email strategies without sacrificing revenue.",
+            content: `Analyze the last [TIMEFRAME, e.g. 6 months] of campaign and flow performance to evaluate how dependent our email revenue is on discounts. Compare revenue, conversion rate, and AOV between discount-driven campaigns and non-discount campaigns. Identify whether we're training customers to wait for promotions and propose a [TIMEFRAME, e.g. 90-day] roadmap to gradually shift toward higher-margin email strategies without sacrificing revenue.`,
+            category: Category.STRATEGY,
+          },
+          {
+            id: 's7',
+            title: 'Lifecycle Stage Gap Analysis',
+            shortDescription: "Identify gaps in email touchpoints across the customer lifecycle.",
+            description: "Map our current email touchpoints across the full customer lifecycle: acquisition, onboarding, first purchase, repeat purchase, loyalty, and reactivation. Identify which stages have strong coverage and which have gaps or underperforming flows. Recommend the [# OF PRIORITIES, e.g. 3–5] highest-impact opportunities to add or improve email touchpoints based on where we're losing the most potential revenue.",
+            content: `Map our current email touchpoints across the full customer lifecycle: acquisition, onboarding, first purchase, repeat purchase, loyalty, and reactivation. Identify which stages have strong coverage and which have gaps or underperforming flows. Recommend the [# OF PRIORITIES, e.g. 3–5] highest-impact opportunities to add or improve email touchpoints based on where we're losing the most potential revenue.`,
+            category: Category.STRATEGY,
+          },
+          {
+            id: 's8',
+            title: 'Send Frequency Optimization Plan',
+            shortDescription: "Analyze send frequency vs engagement to recommend optimal cadence.",
+            description: "Analyze the relationship between send frequency and engagement over the last [TIMEFRAME, e.g. 6 months]. Evaluate whether increasing or decreasing cadence has correlated with changes in open rate, unsubscribe rate, revenue per recipient, and list fatigue indicators. Recommend an optimal send frequency strategy by segment tier for [TARGET MONTH], balancing revenue goals with long-term list health.",
+            content: `Analyze the relationship between send frequency and engagement over the last [TIMEFRAME, e.g. 6 months]. Evaluate whether increasing or decreasing cadence has correlated with changes in open rate, unsubscribe rate, revenue per recipient, and list fatigue indicators. Recommend an optimal send frequency strategy by segment tier for [TARGET MONTH], balancing revenue goals with long-term list health.`,
+            category: Category.STRATEGY,
+          },
+          {
+            id: 's9',
+            title: 'What Should I Send Next?',
+            shortDescription: "Recommend next campaigns based on recent send history.",
+            description: "Based on what we've sent in the last [TIMEFRAME, e.g. 14 days] — the segments we hit, the content themes, and the offers used — recommend what our next [# OF CAMPAIGNS, e.g. 1–2] campaign(s) should be. Consider what audiences haven't been contacted recently, what content angles we haven't used, and what performed well enough to warrant a follow-up.",
+            content: `Based on what we've sent in the last [TIMEFRAME, e.g. 14 days] — the segments we hit, the content themes, and the offers used — recommend what our next [# OF CAMPAIGNS, e.g. 1–2] campaign(s) should be. Consider what audiences haven't been contacted recently, what content angles we haven't used, and what performed well enough to warrant a follow-up.`,
+            category: Category.STRATEGY,
+          },
+          {
+            id: 's10',
+            title: 'Quick Segment Health Check',
+            shortDescription: "Fast overview of main segment tiers.",
+            description: "Give me a fast overview of our main segment tiers: [SEGMENTS, e.g. engaged, semi-engaged, at-risk, lapsed]. For each, show approximate size, recent engagement trend, and revenue efficiency. Flag which segment deserves more attention this week and why.",
+            content: `Give me a fast overview of our main segment tiers: [SEGMENTS, e.g. engaged, semi-engaged, at-risk, lapsed]. For each, show approximate size, recent engagement trend, and revenue efficiency. Flag which segment deserves more attention this week and why.`,
+            category: Category.STRATEGY,
+          },
+          {
+            id: 's11',
+            title: 'Competitor Email Teardown',
+            shortDescription: "Analyze competitor emails for adaptable ideas.",
+            description: "I'm going to share [# OF EMAILS, e.g. 1–3] competitor email(s). For each, break down: subject line strategy, content structure, offer framing, CTA approach, and design choices. Then tell me what ideas we could adapt for our own audience and what they're doing that we should avoid.",
+            content: `I'm going to share [# OF EMAILS, e.g. 1–3] competitor email(s). For each, break down: subject line strategy, content structure, offer framing, CTA approach, and design choices. Then tell me what ideas we could adapt for our own audience and what they're doing that we should avoid.`,
+            category: Category.STRATEGY,
+          },
+          {
+            id: 's12',
+            title: 'End-of-Month Priority Check',
+            shortDescription: "Identify priorities for remaining days of the month.",
+            description: "We're approaching the end of [MONTH]. Based on our performance so far this month — campaigns sent, revenue generated, engagement trends — tell me the [# OF PRIORITIES, e.g. 2–3] most important things to focus on in the remaining days. Be specific: what to send, who to target, and what metric to push.",
+            content: `We're approaching the end of [MONTH]. Based on our performance so far this month — campaigns sent, revenue generated, engagement trends — tell me the [# OF PRIORITIES, e.g. 2–3] most important things to focus on in the remaining days. Be specific: what to send, who to target, and what metric to push.`,
+            category: Category.STRATEGY,
+          },
         ];
         // =================================================================================
         //  END OF PROMPT ZONE
@@ -204,7 +519,7 @@
                         <span className={`text-xs font-bold px-2.5 py-1 rounded-full border uppercase tracking-wide ${getCategoryColor(prompt.category)}`}>{prompt.category}</span>
                     </div>
                     <h3 className="text-2xl font-extrabold text-gray-900 mb-2 group-hover:text-brand-600 transition-colors leading-tight">{prompt.title}</h3>
-                    <p className="text-gray-500 text-lg leading-snug line-clamp-3 mb-4 flex-grow">{prompt.shortDescription}</p>
+                    <p className="text-gray-500 text-lg leading-snug line-clamp-3 mb-4 flex-grow">{prompt.content}</p>
                     <div className="pt-4 border-t border-gray-100 mt-auto flex items-center text-base font-bold text-brand-600 opacity-0 group-hover:opacity-100 transition-opacity">View Prompt &rarr;</div>
                 </div>
             );
@@ -245,10 +560,6 @@
                             <button onClick={onClose} className="p-2 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-full transition-colors"><X className="w-6 h-6" /></button>
                         </div>
                         <div className="p-6 overflow-y-auto">
-                            <div className="mb-6">
-                                <h4 className="text-sm font-bold text-gray-400 uppercase tracking-wider mb-2">Description</h4>
-                                <p className="text-gray-700 text-lg leading-relaxed">{prompt.description}</p>
-                            </div>
                             <div>
                                 <div className="flex items-center justify-between mb-3">
                                     <h4 className="text-sm font-bold text-gray-400 uppercase tracking-wider flex items-center gap-2"><Terminal className="w-4 h-4" /> Prompt Content</h4>
@@ -300,15 +611,21 @@
             const [selectedCategory, setSelectedCategory] = useState('All');
             const [activePrompt, setActivePrompt] = useState(null);
 
+            // Shuffle prompts once on mount to mix categories
+            const shuffledPrompts = useMemo(() => {
+                return [...PROMPTS].sort(() => Math.random() - 0.5);
+            }, []);
+
             const filteredPrompts = useMemo(() => {
-                return PROMPTS.filter((prompt) => {
+                return shuffledPrompts.filter((prompt) => {
                     const matchesSearch = prompt.title.toLowerCase().includes(searchTerm.toLowerCase()) || 
                                           prompt.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                                          prompt.shortDescription.toLowerCase().includes(searchTerm.toLowerCase());
+                                          prompt.shortDescription.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                                          prompt.content.toLowerCase().includes(searchTerm.toLowerCase());
                     const matchesCategory = selectedCategory === 'All' || prompt.category === selectedCategory;
                     return matchesSearch && matchesCategory;
                 });
-            }, [searchTerm, selectedCategory]);
+            }, [searchTerm, selectedCategory, shuffledPrompts]);
 
             return (
                 <div className="min-h-screen bg-[#2b2a29] pb-20 font-sans">
@@ -318,8 +635,12 @@
                                 <img src="https://powerdigitalmarketing.com/wp-content/uploads/2024/10/logo-white.svg" alt="Power Digital Marketing" className="h-7 sm:h-9 w-auto opacity-95" />
                             </div>
                             <h1 className="text-4xl font-extrabold text-white tracking-tight sm:text-5xl mb-2">{APP_TITLE}</h1>
-                            <h2 className="text-xl font-semibold text-indigo-100 tracking-wide mb-6">Lifecycle Marketing Team</h2>
                             <p className="max-w-3xl mx-auto text-xl sm:text-2xl text-indigo-200/90 font-light leading-relaxed">{APP_SUBTITLE}</p>
+                            <div className="max-w-4xl mx-auto mt-8 p-5 bg-white/10 backdrop-blur-md border border-white/20 rounded-xl shadow-lg">
+                                <p className="text-base sm:text-lg text-indigo-50 leading-relaxed font-medium">
+                                    <span className="font-bold text-white">⚙️ Before you start:</span> Make sure your Klaviyo app is connected in Claude or ChatGPT so the AI can pull your account data directly. If you're working in Flaunt, Klaviyo access is already built into your client's account. For clients not on Klaviyo, attach the necessary campaign and performance data in CSV or PDF format before running any prompt.
+                                </p>
+                            </div>
                         </div>
                     </header>
                     <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-12">
@@ -347,10 +668,9 @@
             );
         };
 
-        // Renderizado
+        // Rendering
         const root = createRoot(document.getElementById('root'));
         root.render(<App />);
     </script>
-<script type="module" src="/index.tsx"></script>
 </body>
 </html>
