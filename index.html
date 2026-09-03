@@ -181,6 +181,12 @@
             content: `I'm going to share [CONTENT TYPE, e.g. a blog post, a social media caption, a landing page, a product description]. Repurpose this content into a complete email including: subject line, preview text, headline, body copy, and CTA. The email should target [SEGMENT] and the goal is [OBJECTIVE, e.g. drive traffic, generate sales, educate]. Adapt the tone and length for email format.`,
             category: Category.CONTENT,
           },
+          {
+            id: 'c17',
+            title: 'Customer Review Mining for Email Angles',
+            content: `I'm going to paste or attach [# OF REVIEWS, e.g. 10–30] customer reviews for [BRAND / PRODUCT]. Read every review and extract: (1) the most common praise themes — what specific words and phrases do happy customers repeat? (2) the top objections or hesitations mentioned by critical reviewers; (3) emotional triggers — moments of surprise, relief, or delight that could translate to email hooks. Then generate [# OF ANGLES, e.g. 5] distinct email content angles grounded in real customer language, each with a working subject line and a one-sentence body concept. Do not invent claims — every angle must trace back to at least one actual review excerpt.`,
+            category: Category.CONTENT,
+          },
 
           // ── INSIGHTS & ANALYSIS ──
           {
@@ -416,6 +422,20 @@
             content: `Rank all campaigns sent in [MONTH] by revenue per recipient. Show me the top [# OF CAMPAIGNS, e.g. 3] and bottom [# OF CAMPAIGNS, e.g. 3] with their key metrics. For each, give me a one-sentence explanation of what likely drove the result.`,
             category: Category.REPORTS,
           },
+          {
+            id: 'r17',
+            title: 'CFO Test — Executive Rewrite',
+            requiresData: true,
+            content: `Take the performance summary below and rewrite it so a non-marketing executive — a CFO, CEO, or board member — can understand the impact in under two minutes. Replace channel jargon with business language: revenue contribution, cost efficiency, margin impact, and customer acquisition cost. Keep every number accurate but frame it in terms of business outcomes, not platform metrics. If a metric does not have a clear business translation, flag it and suggest what would be more meaningful to include. The goal is a version I could send upward without a glossary.`,
+            category: Category.REPORTS,
+          },
+          {
+            id: 'r18',
+            title: 'Signup Form & Popup Performance Audit',
+            requiresData: true,
+            content: `Audit all active signup forms and popups for [BRAND] over the last [TIMEFRAME, e.g. 90 days]. For each form, report: submission volume, conversion rate (views to submissions), the list or segment it feeds, and its estimated contribution to total list growth. Identify which forms are underperforming relative to benchmarks, which are driving the most engaged subscribers (by downstream open and click rates if available), and any forms that appear to be broken, hidden, or redundant. Recommend the [# OF PRIORITIES, e.g. 2–3] highest-impact changes to improve overall capture rate.`,
+            category: Category.REPORTS,
+          },
 
           // ── STRATEGY & PLANNING ──
           {
@@ -536,6 +556,13 @@
             content: `Build the business case for a flow project on [BRAND]: [FLOW NAME OR SCOPE]. Work in this order. (1) Baseline: the flow's current revenue, conversions, and delivered sends over the last [TIMEFRAME], or state plainly that the flow does not exist yet. (2) Addressable volume: how many people enter this trigger per month, from actual send or trigger data — not from assumption. (3) Projection: conservative, expected, and optimistic revenue outcomes, showing the arithmetic for each so I can change one input and follow it through. (4) Effort: strategy, copy, design, and build hours. (5) Verdict: projected incremental revenue per month, payback period, and revenue per email against this account's current flow average. Label every input as measured or assumed. If the volume data is not available, stop and tell me exactly what to pull rather than estimating it.`,
             category: Category.STRATEGY,
           },
+          {
+            id: 's18',
+            title: 'Sunset & Winback Strategy Builder',
+            requiresData: true,
+            content: `Design a complete sunset and winback strategy for [BRAND]. Start by defining the suppression policy: at what inactivity threshold should a subscriber be suppressed, and what engagement signals (opens, clicks, site visits, purchases) reset the clock? Then build the winback sequence that fires before suppression — specify the number of touches, timing between them, messaging angle for each (emotional, incentive, last-chance), and which segments get which version. Finally, define re-entry criteria: what does a suppressed subscriber need to do to rejoin the active pool? Ground every recommendation in this account's actual engagement decay curve and list composition if data is available. If not, state the assumptions clearly.`,
+            category: Category.STRATEGY,
+          },
 
           // ── NEW BUSINESS & APPRAISALS ──
           {
@@ -574,6 +601,12 @@
             content: `Format the recommendation below into our standard audit-channel drop. Output exactly these fields and nothing else: Brand, Type (B2C / B2B / hybrid), Main Goal, Deck slide range, Key recommendation in three sentences or fewer, Volume Guidance (email automations, campaigns per month, SMS per month), Blueprint recommendation. Keep it short enough to read in the channel without expanding the message.`,
             category: Category.NEW_BUSINESS,
           },
+          {
+            id: 'nb7',
+            title: 'Analyze-First Appraisal Draft',
+            content: `Before writing anything, read the attached audit data for [BRAND] end to end. Then state back to me: (1) what you found — the key numbers, the gaps, and the patterns, with the source file or section for each; (2) what you did not find that you expected to see, listed as explicit data gaps; (3) your preliminary read on the biggest lifecycle opportunities. Wait for my confirmation that your read is correct before drafting any narrative or recommendation. This two-step process prevents hallucinated insights — nothing goes into the appraisal that the data does not support.`,
+            category: Category.NEW_BUSINESS,
+          },
 
           // ── PRODUCTION & QA ──
           {
@@ -594,6 +627,12 @@
             content: `Build a design brief for [EMAIL OR CAMPAIGN NAME] for [BRAND], sending [DATE] to [SEGMENT]. Inputs required: Theme, Segment or Audience, Goal or content type. Additional details are optional. Produce the email's purpose in one line, module-by-module structure with the copy that belongs in each module, image and product direction per module, CTA treatment, mobile considerations, and anything the designer must not change. Do not invent product claims, offers, or availability language such as "back in stock" or "low stock." If an offer is referenced but not confirmed, mark it VERIFY rather than writing around it.`,
             category: Category.PRODUCTION_QA,
           },
+          {
+            id: 'q4',
+            title: 'Pre-Send QA Checklist',
+            content: `I am about to send [CAMPAIGN NAME] for [BRAND] to [SEGMENT] at [SEND TIME]. Run through a structured pre-send QA check on the following: (1) Links — are all URLs correct, tracked, and not pointing to staging or placeholder pages? (2) Dynamic content — are merge tags, conditional blocks, and personalization tokens rendering correctly for this segment? (3) Segment & suppression — confirm the target segment and any suppression lists that should be applied. (4) Subject line & preview text — check for length, clarity, and that they match the email content. (5) Mobile rendering — flag any elements likely to break on small screens (wide images, multi-column layouts, small tap targets). (6) Send time — does this conflict with any other scheduled send in the last 24 hours? List each item as PASS, FAIL, or VERIFY (when you cannot confirm without additional information), and explain any failures.`,
+            category: Category.PRODUCTION_QA,
+          },
 
           // ── OPS & ENABLEMENT ──
           {
@@ -606,6 +645,18 @@
             id: 'o2',
             title: 'Daily Action-Item Recap',
             content: `Review all my open threads across Gong, Asana, client Slack channels, and Gmail from the last business day. For each item found: (1) Name the source and link to the specific message or task. (2) State the action required in one sentence. (3) Classify urgency: if there is an explicit deadline within 48 hours or a direct request from a client or manager, mark it URGENT; everything else is NORMAL. (4) Quote the exact line that created the commitment — do not paraphrase or infer. Output a single numbered list sorted by urgency, then by source. Personalize before first use: replace [YOUR NAME] with your name, [YOUR EMAIL] with your email, [CLIENT LIST] with your active clients, and [SKIP PROJECTS] with any projects to exclude.`,
+            category: Category.OPS,
+          },
+          {
+            id: 'o3',
+            title: 'Meeting Notes to Action Items',
+            content: `Here are the raw notes (or transcript) from a [MEETING TYPE, e.g. client call, internal sync, QBR, kickoff]. Extract every action item mentioned or implied. For each, list: (1) the specific task in one sentence; (2) the owner — who said they would do it, or who it was assigned to (write UNASSIGNED if unclear); (3) the deadline if one was stated, or NO DEADLINE if none was mentioned; (4) the exact quote or context from the notes that created the commitment. Group action items by owner. At the end, list any open questions or decisions that were raised but not resolved during the meeting.`,
+            category: Category.OPS,
+          },
+          {
+            id: 'o4',
+            title: 'New Account What-to-Know Brief',
+            content: `I am onboarding to [BRAND] as the lifecycle strategist. Using whatever information is available — attached briefs, platform access, prior reports, or the data connection — build me a structured intake brief covering: (1) what the brand sells, who they sell to, and their business model (DTC, wholesale, hybrid, subscription, B2B); (2) current lifecycle state — which flows are live, approximate campaign cadence, list size and health, ESP and tech stack; (3) key contacts on the client side and their roles; (4) recent performance headlines — what's working, what's underperforming, any known issues or sensitivities; (5) immediate priorities — what should I focus on in the first two weeks based on the data in front of you. Where information is missing, list it as an explicit gap I need to fill rather than guessing.`,
             category: Category.OPS,
           }
         ];
@@ -779,7 +830,7 @@
                             <p className="text-indigo-200/70 text-base mt-2">{totalCount} prompts across {Object.keys(Category).length} categories</p>
                             <div className="max-w-4xl mx-auto mt-8 p-5 bg-white/10 backdrop-blur-md border border-white/20 rounded-xl shadow-lg">
                                 <p className="text-base sm:text-lg text-indigo-50 leading-relaxed font-medium">
-                                    <span className="font-bold text-white">&#9881;&#65039; Before you start:</span> Make sure the AI tool you're using has access to your client's ESP data. In <strong>Claude</strong> or <strong>ChatGPT</strong>, connect the Klaviyo app (or the relevant ESP integration). In <strong>Flaunt</strong>, your client's Klaviyo access is built in. In <strong>Omega</strong>, confirm the client's data connection is active in the platform. For clients on ESPs without a direct connector, attach the necessary campaign and performance data in CSV or PDF format before running any prompt. Prompts marked with a <span className="inline-flex items-center gap-1 text-xs font-bold px-1.5 py-0.5 rounded bg-purple-200/30 text-white border border-purple-300/40"><Database className="w-3 h-3" /> Data</span> badge require live data access.
+                                    <span className="font-bold text-white">&#9881;&#65039; Before you start:</span> Make sure the AI tool you're using has access to your client's ESP data. In <strong>Claude</strong> or <strong>ChatGPT</strong>, connect the Klaviyo app (or the relevant ESP integration). In <strong>Flaunt</strong>, your client's Klaviyo access is built in. In <strong>Omega</strong>, confirm the client's data connection is active in the platform. For clients on ESPs without a direct connector, attach the necessary campaign and performance data in CSV or PDF format before running any prompt. Prompts marked with a <span className="inline-flex items-center gap-1 text-xs font-bold px-1.5 py-0.5 rounded bg-purple-200/30 text-white border border-purple-300/40"><Database className="w-3 h-3" /> Data</span> badge require live&nbsp;data&nbsp;access.
                                 </p>
                             </div>
                         </div>
